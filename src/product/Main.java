@@ -10,19 +10,13 @@ public class Main {
 		manager.addProduct(new Product(4, "小説", 1500, 4));
 		manager.addProduct(new Product(5, "Tシャツ", 1500, 5));
 
-		System.out.println("----商品を5つ追加して全てを表示する----");
-		manager.displayProducts();
+		System.out.println("--商品名「ソファ」の情報と割引率30%の情報を表示する--");
+		DiscountedProduct sofa = new DiscountedProduct(2, "ソファ", 30000, 5, 0.3);
+		System.out.println(sofa);
 
-		manager.removeProduct(1);
-		System.out.println("----商品を1つ削除して全てを表示する----");
-		manager.displayProducts();
-
-		System.out.println("----商品名「米」の情報を表示する----");
-		Product rice = manager.getProductByName("米");
-		if (rice != null) {
-			System.out.println(rice);
-		} else {
-			System.out.println("商品が見つかりません");
+		System.out.println("--商品名「Tシャツ」を検索して表示する--");
+		for (Product p : manager.search("Tシャツ")) {
+			System.out.println(p);
 		}
 	}
 }
