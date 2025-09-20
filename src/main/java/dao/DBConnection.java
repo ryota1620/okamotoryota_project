@@ -8,7 +8,7 @@ public class DBConnection {
     private static final String USER = "root";
     private static final String PASSWORD = "Ryon1620";
 
-    public static Connection getConnection() throws Exception {
+	public static Connection getConnection() throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }

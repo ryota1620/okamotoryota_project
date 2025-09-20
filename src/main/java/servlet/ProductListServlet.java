@@ -15,17 +15,17 @@ import model.Product;
 
 @WebServlet("/products")
 public class ProductListServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
-            ProductDAO dao = new ProductDAO();
-            List<Product> products = dao.findAll();
-            request.setAttribute("products", products);
-            RequestDispatcher rd = request.getRequestDispatcher("productList.jsp");
-            rd.forward(request, response);
-        } catch (Exception e) {
-            throw new ServletException(e);
-        }
-    }
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		try {
+			ProductDAO dao = new ProductDAO();
+			List<Product> products = dao.findAll();
+			request.setAttribute("products", products);
+			RequestDispatcher rd = request.getRequestDispatcher("productList.jsp");
+			rd.forward(request, response);
+		} catch (Exception e) {
+			throw new ServletException(e);
+		}
+	}
 }
