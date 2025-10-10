@@ -10,10 +10,12 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
-    @Override protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-    	req.setCharacterEncoding("UTF-8");
-        HttpSession ses = req.getSession(false);
-        if (ses != null) ses.invalidate();
-        resp.sendRedirect(req.getContextPath() + "/login");
-    }
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		req.setCharacterEncoding("UTF-8");
+		HttpSession ses = req.getSession(false);
+		if (ses != null)
+			ses.invalidate();
+		resp.sendRedirect(req.getContextPath() + "/login");
+	}
 }

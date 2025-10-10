@@ -11,19 +11,19 @@ import org.junit.jupiter.api.Test;
 import base.H2TestSupport;
 
 public class LogoutServletTest extends H2TestSupport {
-    @Test
-    void セッション破棄してログインへ() throws Exception {
-        LogoutServlet servlet = new LogoutServlet();
-        HttpServletRequest req = mock(HttpServletRequest.class);
-        HttpServletResponse res = mock(HttpServletResponse.class);
-        HttpSession ses = mock(HttpSession.class);
+	@Test
+	void セッション破棄してログインへ() throws Exception {
+		LogoutServlet servlet = new LogoutServlet();
+		HttpServletRequest req = mock(HttpServletRequest.class);
+		HttpServletResponse res = mock(HttpServletResponse.class);
+		HttpSession ses = mock(HttpSession.class);
 
-        when(req.getSession(false)).thenReturn(ses);
-        when(req.getContextPath()).thenReturn("");
+		when(req.getSession(false)).thenReturn(ses);
+		when(req.getContextPath()).thenReturn("");
 
-        servlet.doPost(req, res);
+		servlet.doPost(req, res);
 
-        verify(ses).invalidate();
-        verify(res).sendRedirect("/login");
-    }
+		verify(ses).invalidate();
+		verify(res).sendRedirect("/login");
+	}
 }
